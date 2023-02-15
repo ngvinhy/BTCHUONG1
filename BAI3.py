@@ -11,7 +11,7 @@ def NegativeNumberInStrings(string: str):
                     i += 1
                 else:
                     break
-            if "-" + item in string:
+            if "-" + item in string and int(item[:i+1]) != 0:
                 kq.extend([-int(item[:i+1])])
     return kq
 
