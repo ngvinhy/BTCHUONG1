@@ -1,18 +1,18 @@
 def NegativeNumberInStrings(string: str):
     kq = []
-    i = 0
-    while i + 1 < len(string):
-        if string[i] == '-' and string[i+1].isnumeric():
-            k = ''
-            j = i + 1
-            while j < len(string) and string[j].isnumeric():
-                k += string[j]
-                j += 1
-            else:
-                kq.extend([-int(k)])
-            i = j
-        else:
-            i += 1
+    s = string.split('-')
+    while "" in s:
+        s.remove("")
+    for item in s:
+        if item[0].isdigit():
+            i = 0
+            while i + 1 < len(item):
+                if item[i+1].isnumeric():
+                    i += 1
+                else:
+                    break
+            if "-" + item in string:
+                kq.extend([-int(item[:i+1])])
     return kq
 
 
